@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Leaf } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -25,26 +25,43 @@ export default function Login() {
   }
 
   return (
-    <main className="grid min-h-screen bg-[radial-gradient(circle_at_top_left,#d9f99d,transparent_28%),linear-gradient(135deg,#f8fafc,#ecfeff)] lg:grid-cols-[1.1fr_.9fr]">
+    <main className="grid min-h-screen bg-[#fdfbf5] lg:grid-cols-[1.1fr_.9fr]">
       <section className="flex min-h-[42vh] flex-col justify-between gap-10 p-6 sm:p-8 lg:min-h-screen lg:p-14">
-        <div className="flex items-center gap-3 text-teal-950">
-          <span className="grid h-10 w-10 place-items-center rounded-lg bg-teal-900 text-white"><Leaf size={20}/></span>
-          <strong>Hoop ESG Manager</strong>
-        </div>
+        <Link href="/" className="flex items-center gap-3 text-[#2f402c]">
+          <Image src="/logo-florescencia.jpeg" alt="Logo Florescencia" width={120} height={60} className="h-14 w-auto" />
+        </Link>
         <div className="max-w-2xl">
-          <h1 className="text-3xl font-semibold text-slate-950 sm:text-4xl lg:text-6xl">Gestao ESG moderna para consultorias.</h1>
-          <p className="mt-5 max-w-xl text-base text-slate-600 sm:text-lg">Formularios publicos, dashboards, scores, relatorios e analise especialista.</p>
+          <h1 className="font-serif text-3xl font-semibold text-[#2f402c] sm:text-4xl lg:text-5xl">
+            Portal ESG Florescencia
+          </h1>
+          <p className="mt-5 max-w-xl text-base text-[#2f402c]/80 sm:text-lg">
+            Formularios publicos, dashboards, scores, relatorios e analise especialista.
+          </p>
         </div>
-        <p className="text-sm text-slate-500">Backend 3333 - Frontend 3000</p>
+        <Link href="/" className="text-sm font-medium text-[#2f402c]/70 hover:text-[#2f402c]">
+          Voltar ao site
+        </Link>
       </section>
       <section className="grid place-items-center p-4 sm:p-6">
         <form onSubmit={form.handleSubmit(onSubmit)} className="glass w-full max-w-md rounded-lg p-5 shadow-soft sm:p-8">
-          <h2 className="text-2xl font-semibold text-slate-950">Entrar</h2>
+          <h2 className="font-serif text-2xl font-semibold text-[#2f402c]">Entrar</h2>
           <div className="mt-6 space-y-4">
-            <label className="block text-sm font-medium">E-mail<Input className="mt-2" {...form.register('email')}/>{form.formState.errors.email && <small className="text-red-600">{String(form.formState.errors.email.message)}</small>}</label>
-            <label className="block text-sm font-medium">Senha<Input className="mt-2" type="password" {...form.register('password')}/>{form.formState.errors.password && <small className="text-red-600">{String(form.formState.errors.password.message)}</small>}</label>
-            <Button disabled={form.formState.isSubmitting} className="w-full">Acessar plataforma</Button>
-            <Link className="block text-center text-sm text-teal-800" href="/forgot-password">Recuperar senha</Link>
+            <label className="block text-sm font-medium">
+              E-mail
+              <Input className="mt-2" {...form.register('email')} />
+              {form.formState.errors.email && <small className="text-red-600">{String(form.formState.errors.email.message)}</small>}
+            </label>
+            <label className="block text-sm font-medium">
+              Senha
+              <Input className="mt-2" type="password" {...form.register('password')} />
+              {form.formState.errors.password && <small className="text-red-600">{String(form.formState.errors.password.message)}</small>}
+            </label>
+            <Button disabled={form.formState.isSubmitting} className="w-full bg-[#2f402c] hover:bg-[#243524]">
+              Acessar plataforma
+            </Button>
+            <Link className="block text-center text-sm text-[#2f402c]/80 hover:text-[#2f402c]" href="/forgot-password">
+              Recuperar senha
+            </Link>
           </div>
         </form>
       </section>

@@ -8,7 +8,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-30 flex min-h-16 items-center justify-between gap-3 border-b border-slate-200 bg-white/90 px-4 backdrop-blur lg:px-8">
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-slate-900 lg:hidden">Hoop ESG</p>
+        <p className="truncate text-sm font-semibold text-[#2f402c] lg:hidden">Florescencia</p>
         <div className="hidden w-full max-w-md items-center gap-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500 sm:flex">
           <Search size={16} />
           Buscar

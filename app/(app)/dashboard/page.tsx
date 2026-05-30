@@ -15,7 +15,7 @@ export default function Dashboard() {
     ['Media ESG', Math.round(data?.averageEsg || 0)],
     ['Ambiental', Math.round(data?.averageEnvironmental || 0)],
     ['Social', Math.round(data?.averageSocial || 0)],
-    ['Governanca', Math.round(data?.averageGovernance || 0)],
+    ['Governança', Math.round(data?.averageGovernance || 0)],
   ];
 
   return (

@@ -18,7 +18,7 @@ export function Sidebar() {
   const pathname = usePathname();
   return (
     <aside className="hidden w-72 shrink-0 border-r border-slate-200 bg-white/95 p-5 lg:block">
-      <div className="mb-8 text-xl font-bold text-teal-900">Hoop ESG</div>
+      <div className="mb-8 text-xl font-bold text-[#2f402c]">Florescencia</div>
       <nav className="space-y-1">
         {items.map(([href, label, Icon]) => {
           const active = pathname.startsWith(href);
@@ -28,7 +28,7 @@ export function Sidebar() {
               href={href}
               className={cn(
                 'flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition',
-                active ? 'bg-teal-50 text-teal-900' : 'text-slate-600 hover:bg-teal-50 hover:text-teal-900',
+                active ? 'bg-[#e5d3af]/30 text-[#2f402c]' : 'text-slate-600 hover:bg-[#e5d3af]/20 hover:text-[#2f402c]',
               )}
             >
               <Icon size={18} />
@@ -54,7 +54,7 @@ export function MobileNav() {
               href={href}
               className={cn(
                 'flex min-w-0 flex-col items-center justify-center gap-1 rounded-md px-1 py-1.5 text-[10px] font-semibold',
-                active ? 'bg-teal-50 text-teal-900' : 'text-slate-500',
+                active ? 'bg-[#e5d3af]/30 text-[#2f402c]' : 'text-slate-500',
               )}
             >
               <Icon size={18} />
