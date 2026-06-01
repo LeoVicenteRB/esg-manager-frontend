@@ -1,18 +1,30 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Header } from '@/components/shell/header';
 import { MobileNav, Sidebar } from '@/components/shell/sidebar';
+import { getUser } from '@/lib/auth';
+import { allowedForPath, defaultPathForRole } from '@/lib/permissions';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (!localStorage.getItem('esg.token')) router.replace('/login');
-    else setReady(true);
-  }, [router]);
+    const token = localStorage.getItem('esg.token');
+    const user = getUser();
+    if (!token || !user) {
+      router.replace('/login');
+      return;
+    }
+    if (!allowedForPath(pathname, user.role)) {
+      router.replace(defaultPathForRole(user.role));
+      return;
+    }
+    setReady(true);
+  }, [pathname, router]);
 
   if (!ready) {
     return <main className="grid min-h-screen place-items-center text-slate-500">Carregando...</main>;

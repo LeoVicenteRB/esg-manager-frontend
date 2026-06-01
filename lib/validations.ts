@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const required = 'Campo obrigatorio.';
+const required = 'Campo obrigatório.';
 const cnpj = z.string().regex(/^(\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}|\d{14})$/, 'CNPJ invalido.');
 const phone = z.string().optional().refine(
   (value) => !value || /^(\(\d{2}\)\s?\d{4,5}-\d{4}|\d{10,11})$/.test(value),
@@ -9,7 +9,7 @@ const phone = z.string().optional().refine(
 
 export const loginSchema = z.object({
   email: z.string().email('E-mail invalido.'),
-  password: z.string().min(1, 'Senha obrigatoria.'),
+  password: z.string().min(1, 'Senha obrigatória.'),
 });
 
 export const forgotPasswordSchema = z.object({
@@ -48,14 +48,14 @@ export const publicCompanySchema = clientSchema.pick({
 });
 
 export const specialistReviewSchema = z.object({
-  formId: z.string().min(1, 'Selecione um formulario.'),
-  clientId: z.string().min(1, 'Formulario sem cliente vinculado.'),
-  environmentalDiagnosis: z.string().trim().min(5, 'Informe um diagnostico.').max(3000),
-  socialDiagnosis: z.string().trim().min(5, 'Informe um diagnostico.').max(3000),
-  governanceDiagnosis: z.string().trim().min(5, 'Informe um diagnostico.').max(3000),
+  formId: z.string().min(1, 'Selecione um formulário.'),
+  clientId: z.string().min(1, 'Formulário sem cliente vinculado.'),
+  environmentalDiagnosis: z.string().trim().min(5, 'Informe um diagnóstico.').max(3000),
+  socialDiagnosis: z.string().trim().min(5, 'Informe um diagnóstico.').max(3000),
+  governanceDiagnosis: z.string().trim().min(5, 'Informe um diagnóstico.').max(3000),
   risks: z.string().trim().min(5, 'Informe os riscos.').max(3000),
   evidences: z.string().trim().min(5, 'Informe as evidencias.').max(3000),
-  recommendations: z.string().trim().min(5, 'Informe recomendacoes.').max(3000),
+  recommendations: z.string().trim().min(5, 'Informe recomendações.').max(3000),
   priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']),
   suggestedDeadline: z.string().optional().or(z.literal('')),
   adjustedScore: z.coerce.number().min(0).max(100),

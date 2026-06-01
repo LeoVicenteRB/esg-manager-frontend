@@ -1,6 +1,6 @@
 # Hoop ESG Manager Frontend
 
-Frontend Next.js SaaS com login, usuarios, dashboard, clientes, formularios, relatorios e especialista.
+Frontend Next.js SaaS com login, usuários, dashboard, clientes, formulários, relatórios e especialista.
 
 ```bash
 npm install
