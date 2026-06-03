@@ -12,7 +12,7 @@ export default function Forms() {
   const qc = useQueryClient();
   const { data, isLoading } = useQuery({ queryKey: ['operational-diagnoses'], queryFn: () => api.get('/admin/operational-diagnoses').then((r) => r.data) });
   const create = useMutation({ mutationFn: () => api.post('/forms', {}).then((r) => r.data), onSuccess: () => qc.invalidateQueries({ queryKey: ['operational-diagnoses'] }) });
-  const publicUrl = typeof window !== 'undefined' ? `${window.location.origin}/diagnóstico-eficiência-operacional` : '/diagnóstico-eficiência-operacional';
+  const publicUrl = typeof window !== 'undefined' ? `${window.location.origin}/diagnostico-eficiencia-operacional` : '/diagnostico-eficiencia-operacional';
 
   return (
     <div className="space-y-6">
