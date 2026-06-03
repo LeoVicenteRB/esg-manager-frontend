@@ -6,13 +6,14 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { api } from '@/lib/api';
+import { DIAGNOSIS_FORM_PATH } from '@/lib/marketing';
 import { labelLeadTemperature, labelStatus } from '@/lib/utils';
 
 export default function Forms() {
   const qc = useQueryClient();
   const { data, isLoading } = useQuery({ queryKey: ['operational-diagnoses'], queryFn: () => api.get('/admin/operational-diagnoses').then((r) => r.data) });
   const create = useMutation({ mutationFn: () => api.post('/forms', {}).then((r) => r.data), onSuccess: () => qc.invalidateQueries({ queryKey: ['operational-diagnoses'] }) });
-  const publicUrl = typeof window !== 'undefined' ? `${window.location.origin}/diagnostico-eficiencia-operacional` : '/diagnostico-eficiencia-operacional';
+  const publicUrl = typeof window !== 'undefined' ? `${window.location.origin}${DIAGNOSIS_FORM_PATH}` : DIAGNOSIS_FORM_PATH;
 
   return (
     <div className="space-y-6">

@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { Award, Building2, Leaf } from 'lucide-react';
+import { DiagnosisCta } from '@/components/marketing/diagnosis-cta';
+import { DiagnosisCtaSection } from '@/components/marketing/diagnosis-cta-section';
 import { FeatureCard } from '@/components/marketing/feature-card';
 import { SectionHeading } from '@/components/marketing/section-heading';
 import { Card } from '@/components/ui/card';
-import { WHATSAPP_URL } from '@/lib/marketing';
 
 const stats = [
   { value: '18+', label: 'Anos de experiência' },
@@ -65,7 +66,8 @@ export function HomeContent() {
               />
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-10 flex flex-col items-center gap-4 text-center">
+            <DiagnosisCta variant="outline" />
             <Link
               href="/servicos"
               className="text-sm font-semibold text-florence-text underline decoration-accent decoration-2 underline-offset-4"
@@ -76,29 +78,10 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="marketing-section pt-0">
-        <div className="mx-auto max-w-6xl">
-          <Card className="overflow-hidden rounded-3xl border-accent/40 bg-gradient-to-br from-white via-white to-accent/20 p-8 sm:p-10">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-florence-text/60">Pronto para comecar?</p>
-                <h2 className="mt-3 font-serif text-3xl font-semibold text-florence-text">Transforme sustentabilidade em vantagem competitiva</h2>
-                <p className="mt-4 text-florence-text/75">
-                  Converse com a Florescencia e descubra como estruturar sua jornada ESG com clareza e resultado.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="cta-primary text-center">
-                  Fale Conosco
-                </a>
-                <Link href="/contato" className="inline-flex min-h-10 items-center justify-center rounded-full border border-florence-text/15 px-6 py-3 text-sm font-semibold text-florence-text transition hover:bg-white">
-                  Ver contato
-                </Link>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
+      <DiagnosisCtaSection
+        title="Transforme sustentabilidade em vantagem competitiva"
+        description="Comece pelo diagnóstico gratuito ou converse com a Florescencia para estruturar sua jornada ESG com clareza e resultado."
+      />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CONTACT_EMAIL, WHATSAPP_URL, navItems } from '@/lib/marketing';
+import { CONTACT_EMAIL, DIAGNOSIS_FORM_PATH, WHATSAPP_URL, navItems } from '@/lib/marketing';
 
 export function SiteFooter() {
   return (
@@ -23,6 +23,9 @@ export function SiteFooter() {
                 {label}
               </Link>
             ))}
+            <Link href={DIAGNOSIS_FORM_PATH} className="font-semibold text-florence-text transition hover:text-florence-text">
+              Diagnóstico gratuito
+            </Link>
           </div>
         </div>
         <div>

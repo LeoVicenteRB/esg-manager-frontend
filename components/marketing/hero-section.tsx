@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { DiagnosisCta } from '@/components/marketing/diagnosis-cta';
 import { GooeyFilter } from '@/components/ui/gooey-filter';
 import { PixelTrail } from '@/components/ui/pixel-trail';
 import { useScreenSize } from '@/hooks/use-screen-size';
@@ -41,6 +41,7 @@ export function HeroSection() {
             Consultoria ESG com foco em impacto positivo, responsabilidade e resultados.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <DiagnosisCta variant="primary" />
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="cta-primary text-center">
               Fale Conosco
             </a>

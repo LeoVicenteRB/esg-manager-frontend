@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { DiagnosisCta } from '@/components/marketing/diagnosis-cta';
+import { DiagnosisCtaSection } from '@/components/marketing/diagnosis-cta-section';
 import { PageHero } from '@/components/marketing/page-hero';
 import { Card } from '@/components/ui/card';
 import { CONTACT_EMAIL, WHATSAPP_URL } from '@/lib/marketing';
@@ -17,6 +19,7 @@ export default function ContatoPage() {
             Entre em contato conosco pelo WhatsApp ou e-mail e descubra como podemos apoiar sua jornada ESG.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <DiagnosisCta variant="primary" />
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="cta-primary">
               Conversar pelo WhatsApp
             </a>
@@ -32,6 +35,7 @@ export default function ContatoPage() {
           </Link>
         </Card>
       </section>
+      <DiagnosisCtaSection showWhatsapp={false} />
     </>
   );
 }

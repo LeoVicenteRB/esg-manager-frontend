@@ -1,3 +1,4 @@
+import { DiagnosisCtaSection } from '@/components/marketing/diagnosis-cta-section';
 import { PageHero } from '@/components/marketing/page-hero';
 import { Card } from '@/components/ui/card';
 
@@ -34,6 +35,7 @@ export default function SobrePage() {
           </Card>
         </div>
       </section>
+      <DiagnosisCtaSection />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { DiagnosisCtaSection } from '@/components/marketing/diagnosis-cta-section';
 import { PageHero } from '@/components/marketing/page-hero';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
@@ -67,6 +68,7 @@ export default function CasesPage() {
           ))}
         </div>
       </section>
+      <DiagnosisCtaSection />
     </>
   );
 }

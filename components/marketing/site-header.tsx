@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { DiagnosisCta } from '@/components/marketing/diagnosis-cta';
 import { Button } from '@/components/ui/button';
 import { navItems } from '@/lib/marketing';
 import { cn } from '@/lib/utils';
@@ -62,6 +63,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <DiagnosisCta variant="header" className="hidden sm:inline-flex" />
             <Link href={portalHref} className="hidden sm:block">
               <Button className="rounded-full bg-accent text-florence-text hover:bg-[#d9c49a]">{portalLabel}</Button>
             </Link>
@@ -97,7 +99,8 @@ export function SiteHeader() {
                 );
               })}
             </nav>
-            <Link href={portalHref} className="mt-4 block">
+            <DiagnosisCta variant="header" className="mt-4 w-full justify-center" />
+            <Link href={portalHref} className="mt-3 block">
               <Button className="w-full rounded-full bg-accent text-florence-text hover:bg-[#d9c49a]">{portalLabel}</Button>
             </Link>
           </div>
