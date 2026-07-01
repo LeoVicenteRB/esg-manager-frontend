@@ -13,7 +13,7 @@ export function HeroSection() {
   const screenSize = useScreenSize();
 
   return (
-    <section className="relative min-h-[580px] overflow-hidden rounded-b-[2.5rem] lg:min-h-[640px]">
+    <section id="inicio" className="relative min-h-[580px] overflow-hidden rounded-b-[2.5rem] lg:min-h-[640px]">
       <Image src={HERO_IMAGE} alt="Floresta sustentavel" fill priority className="object-cover opacity-35" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-br from-florence-bg/95 via-florence-bg/75 to-accent/25" />
 

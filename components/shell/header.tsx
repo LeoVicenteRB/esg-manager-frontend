@@ -23,7 +23,7 @@ export function Header() {
           Voltar ao site
         </Link>
         <span className="hidden max-w-[160px] truncate text-sm text-slate-600 sm:inline">{user?.name}</span>
-        <button onClick={logout} className="rounded-md p-2 text-slate-500 hover:bg-slate-100" title="Sair">
+        <button onClick={() => logout()} className="rounded-md p-2 text-slate-500 hover:bg-slate-100" title="Sair">
           <LogOut size={18} />
         </button>
       </div>

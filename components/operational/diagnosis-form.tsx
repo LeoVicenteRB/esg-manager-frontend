@@ -4,13 +4,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { CheckCircle2, ClipboardCheck, Loader2 } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { api } from '@/lib/api';
+import Link from 'next/link';
 
 type Question = {
   id: string;
@@ -75,10 +76,32 @@ function maskPhone(value: string) {
   return digits.replace(/^(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2');
 }
 
+function BackToSiteButton({ token, className = '' }: { token?: string; className?: string }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setVisible(!token && params.get('origem') === 'site');
+  }, [token]);
+
+  if (!visible) return null;
+
+  return (
+    <div className={className}>
+      <Link
+        href="/"
+        className="inline-flex h-10 items-center justify-center rounded-full border border-emerald-950/15 bg-white px-4 text-sm font-semibold text-emerald-950 shadow-sm transition hover:bg-emerald-50"
+      >
+        Voltar ao site
+      </Link>
+    </div>
+  );
+}
+
 export function OperationalDiagnosisForm({ token }: { token?: string }) {
-  const [answers, setAnswers] = useState<AnswerState>({});
+const [answers, setAnswers] = useState<AnswerState>({});
   const [message, setMessage] = useState('');
-  const form = useForm<FormValues>({
+const form = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: { companySize: 'MEDIUM', employeesCount: 0, city: '', state: '' },
   });
@@ -145,7 +168,9 @@ export function OperationalDiagnosisForm({ token }: { token?: string }) {
   if (submit.data) {
     return (
       <main className="min-h-screen bg-[#f7faf9] px-4 py-8 sm:px-6">
-        <Card className="mx-auto max-w-2xl p-6 text-center sm:p-8">
+
+                <BackToSiteButton token={token} className="mx-auto mb-4 max-w-2xl" />
+<Card className="mx-auto max-w-2xl p-6 text-center sm:p-8">
           <CheckCircle2 className="mx-auto h-12 w-12 text-teal-700" />
           <h1 className="mt-4 text-2xl font-semibold text-slate-950">Diagnóstico enviado com sucesso</h1>
           <p className="mt-3 text-slate-600">Você já pode entrar na plataforma com o e-mail profissional e a senha criada.</p>
@@ -160,7 +185,9 @@ export function OperationalDiagnosisForm({ token }: { token?: string }) {
   return (
     <main className="min-h-screen bg-[#f7faf9] px-4 py-6 sm:px-6 lg:py-10">
       <section className="mx-auto max-w-5xl">
-        <div className="mb-6">
+
+                <BackToSiteButton token={token} className="mb-5" />
+<div className="mb-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1 text-sm font-semibold text-teal-900">
             <ClipboardCheck size={16} />
             Diagnóstico gratuito

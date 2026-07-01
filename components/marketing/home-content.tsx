@@ -35,7 +35,7 @@ const services = [
 export function HomeContent() {
   return (
     <>
-      <section className="marketing-section">
+      <section id="sobre" className="marketing-section">
         <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-3">
           {stats.map((stat) => (
             <Card key={stat.label} className="rounded-2xl border-accent/40 bg-white/90 p-5 text-center shadow-card">
@@ -46,7 +46,7 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="marketing-section pt-0">
+      <section id="servicos" className="marketing-section pt-0">
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             align="center"

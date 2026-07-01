@@ -3,7 +3,7 @@ import { CONTACT_EMAIL, DIAGNOSIS_FORM_PATH, WHATSAPP_URL, navItems } from '@/li
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-accent/40 bg-white">
+    <footer id="contato" className="border-t border-accent/40 bg-white">
       <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>

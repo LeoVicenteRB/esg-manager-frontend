@@ -10,7 +10,7 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, description, className }: PageHeroProps) {
   return (
-    <section className={cn('page-header px-4 py-12 sm:px-8 sm:py-16', className)}>
+    <section id="inicio" className={cn('page-header px-4 py-12 sm:px-8 sm:py-16', className)}>
       <div className="mx-auto max-w-5xl">
         <SectionHeading eyebrow={eyebrow} title={title} description={description} />
       </div>
